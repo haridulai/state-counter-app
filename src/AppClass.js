@@ -1,34 +1,24 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-export default class AppClass extends Component {
-  constructor(props) {
-    super(props);
+function AppClass() {
+  const [count, setCount] = useState(0);
 
-    this.state = {
-      count: 0,
-    };
-  }
-
-  increment = () => {
-    this.setState({
-      count: this.state.count + 1,
-    });
+  const increment = () => {
+    setCount(count + 1);
   };
 
-  decrement = () => {
-    this.setState({
-      count: this.state.count - 1,
-    });
+  const decrement = () => {
+    setCount(count - 1);
   };
 
-  render() {
-    return (
-      <div className="app">
-        <h1>Wleomce to my counter app</h1>
-        <p>The count is: {this.state.count}</p>
-        <button onClick={this.decrement}>-</button>
-        <button onClick={this.increment}>+</button>
-      </div>
-    );
-  }
+  return (
+    <div className="app">
+      <h1>Wleomce to my counter app</h1>
+      <p>The count is: {count}</p>
+      <button onClick={decrement}>-</button>
+      <button onClick={increment}>+</button>
+    </div>
+  );
 }
+
+export default AppClass;
